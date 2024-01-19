@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+{% block base %}
+
+<div style="margin-top: 50px;">
+    <h3 style="    text-align: center;font-size: xxx-large;font-weight: bold;margin: 2%;">My Bookings</h3>
+    <table class="table table-striped" style="width: 90%;margin-left:75px ;margin-top: 30px;">
+        <thead class="table-success">
+            <tr>
+                <th scope="col">Bus Number</th>
+                <th scope="col">Source</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Time</th>
+                <th scope="col">Price</th>
+                <th scope="col">Seats Available</th>
+                <th scope="col">Booking</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for p in bus %}
+
+            <tr class="table-success">
+                <td>{{p.pk}}</a></td>
+                <td>{{p.source}}</td>
+                <td>{{p.destination}}</td>
+                <td>{{p.time}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.seats_available}}</td>
+                <td><a href="routes/{{p.pk}}"><button class='btn btn-success'>Book
+                            Ticket</button></a></td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

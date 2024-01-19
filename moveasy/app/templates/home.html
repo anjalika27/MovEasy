@@ -1,0 +1,40 @@
+{% extends './base.html' %}
+{% block base %}
+
+
+<div>
+    <h3 style="    text-align: center;font-size: xxx-large;font-weight: bold;margin: 2%;">Buses Schedule</h3>
+</div>
+
+<div>
+    <table class="table"
+        style="width: 90%;margin-left:75px ;margin-top: 30px;font-size: larger;background-color: rgb(212, 235, 222);">
+        <thead style="text-align: center;">
+            <tr class=" table-info">
+                <th scope="col">Bus No.</th>
+                <th scope="col">Source</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Time</th>
+                <th scope="col">Price</th>
+                <th scope="col">Available Seats</th>
+            </tr>
+        </thead>
+        <tbody style="text-align: center;margin-top: 2%;">
+
+            {% for i in bus %}
+
+            <tr style="margin-top: 2%;height:5%;" class=" table-info">
+                <td>{{forloop.counter}}</td>
+                <td>{{i.source}}</td>
+                <td>{{i.destination}}</td>
+                <td>{{i.time}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.seats_available}}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

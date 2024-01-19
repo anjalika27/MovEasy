@@ -1,0 +1,8 @@
+1. django-admin startproject moveasy
+2. python manage.py startapp app #for different departments of application
+3. python manage.py runserver
+4. add app to installed_apps in settings.py
+5. to make a web page write function with request as a parameter with render/redirect in return in views.py and route it in urls.py 
+6. jinjatemplates
+    -> display data from backend to frontend use context in dict form in return of a function in views.py and vice-versa
+7.
