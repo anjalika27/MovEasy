@@ -1,0 +1,98 @@
+{% extends './base.html' %}
+{% block base %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+
+    }
+
+    main {
+        text-align: center;
+    }
+
+    .seat-layout {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        /* grid-template-rows: repeat(10, 1fr); */
+        grid-gap: 1em;
+        margin-top: 100px;
+    }
+
+    .container {
+        max-width: 700px;
+        height: 750px;
+        margin: 100px auto;
+        margin-top: 0;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    .seat-label {
+        font-weight: bold;
+        margin-right: 0px;
+        margin-top: 10px;
+    }
+
+    .seat {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border: 2px solid #00cc00;
+        /* margin:5px; */
+        margin-top: 10%;
+        margin-left: 0px;
+        margin-right: 30px;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+        background-color: #fff;
+    }
+
+    .not-available {
+        border-color: #ccc;
+        color: #ccc;
+        pointer-events: none;
+    }
+</style>
+
+<div class="container">
+    <form id="myForm" method="post">
+        {% csrf_token %}
+        <div class="seat-layout">
+            {% for i in lis %}
+            <div class="seat-label">
+                <label for="seat_{{i}}">{{ i }}</label>
+            </div>
+            <div class="seat">
+                <input type="checkbox" id="seat_id" onchange="multiply()" name="selected_seats" value="{{ i }}">
+                <!-- title="Available | Price: ₹100" {% if not seat.is_available %} disabled{% endif %} -->
+            </div>
+            {% endfor %}
+        </div>
+        <div style="margin-top: 10%;">
+            <h6 class="cursive" style="font-weight: bolder;font-size: large;">Select seats</h6>
+            <!-- <h6 class="cursive" style="font-weight: bolder;font-size: large;">Total price <script>document.write(multiply(price))</script></h6> -->
+            <input type="submit" class="btn btn-primary btn-md" value="Proceed">
+        </div>
+    </form>
+</div>
+
+<!-- <script>
+    function multiply(price){
+        var counter=0;
+        if(document.getElementById("seat_id").checked==true){
+            counter+=1;
+        }
+        if(document.getElementById("seat_id").checked==false){
+            counter-=1;
+        }
+        return counter*price
+        console.log(counter)
+    }
+</script> -->
+
+{% endblock %}

@@ -12,11 +12,13 @@
         <thead style="text-align: center;">
             <tr class=" table-info">
                 <th scope="col">Bus No.</th>
+                <th scope="col">Passenger Name</th>
                 <th scope="col">Source</th>
                 <th scope="col">Destination</th>
                 <th scope="col">Time</th>
                 <th scope="col">Date of Booking</th>
                 <th scope="col">Price</th>
+                <th scope="col">Cancel</th>
             </tr>
         </thead>
         <tbody style="text-align: center;margin-top: 2%;">
@@ -25,11 +27,14 @@
 
             <tr style="margin-top: 2%;height:5%;" class=" table-info">
                 <td>{{forloop.counter}}</td>
+                <td>{{p.username}}</td>
                 <td>{{p.bus_id.source}}</td>
                 <td>{{p.bus_id.destination}}</td>
                 <td>{{p.bus_id.time}}</td>
                 <td>{{p.date_and_time_of_booking}}</td>
                 <td>{{p.bus_id.price}}</td>
+                <td><a href="cancel/{{p.pk}}"><button class='btn btn-danger'>Cancel
+                        </button></a></td>
             </tr>
 
             {% endfor %}

@@ -25,6 +25,10 @@ urlpatterns = [
     path("register/", registerform),
     path("booking/", bookingform),
     path("routes/", routes),
-    path("routes/routes/<bus_id>/",booking),
-    path('mybookings/',mybookings)
+    path("routes/routes/<bus_id>/", booking),
+    path("mybookings/", mybookings),
+    path("mybookings/cancel/<id>/", cancel_ticket),
+    path("seats/<id>/<name>", seat_selection),
+    path("summary/", summary),
+    path("bookticket/<bus_id>/<str:name>/<price>", sending_email),
 ]

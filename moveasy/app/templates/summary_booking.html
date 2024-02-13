@@ -1,0 +1,51 @@
+{% extends './base.html' %}
+{% block base %}
+
+
+<h3 style="text-align: center;font-size: xxx-large;font-weight: bold;margin: 2%;">Booking Summary</h3>
+
+<div class="card shadow-lg" style="width: 18rem;margin-top: 3%;margin-left: 30%; width:40%">
+    <div class="list-group list-group-flush">
+        <div style="display: flex; flex-direction: row;">
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0;">Name :</div>
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0">{{person.username}}</div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0;">Age :</div>
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0">{{person.age}}</div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0;">Gender :</div>
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0">{{person.gender}}</div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0;">Email :</div>
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0">{{person.email}}</div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0;">Date of Booking :</div>
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0">{{person.date_and_time_of_booking}}</div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0;">From :</div>
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0">{{bus.source}}</div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0;">To :</div>
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0">{{bus.destination}}</div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0;">No.of seats :</div>
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0">{{seat}}</div>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0;">Price :</div>
+            <div class="list-group-item" style="text-align: center;font-size: x-large;width: 50%;border:0">{{total_price}}</div>
+        </div>
+        <a href="/bookticket/{{bus.pk}}/{{person.username}}/{{total_price}}"><button class='btn btn-success' style="width: 100%;">BookTicket</button></a>
+    </div>
+    <!-- <button type="submit" class="btn btn-success"><a href="/"></a>Book Ticket</button> -->
+
+</div>
+
+{% endblock %}
