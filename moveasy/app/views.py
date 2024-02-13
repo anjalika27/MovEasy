@@ -231,7 +231,7 @@ def sending_email(request,bus_id,name,price):
         subject=subject,
         body=plain_message,
         from_email=EMAIL_HOST_USER,
-        to = ["bt21ece095@iiitn.ac.in"]   
+        to = [request.user.email]   
     )
 
     message.attach_alternative(html_message,'text/html')
